@@ -1,0 +1,16 @@
+node_modules/
+ 
+# Environments
+myenv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+ 
+# Local Netlify folder
+.netlify
+*package-lock.json
+*.prettierrc
+public/uploads/*
+
