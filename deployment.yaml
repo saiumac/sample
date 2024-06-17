@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quicknews-backend-main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quicknews-backend-main
+  template:
+    metadata:
+      labels:
+        app: quicknews-backend-main
+    spec:
+      containers:
+      - name: quicknews-backend-main
+        image: quicknews-backend-main
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: CONFIG_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: config.env
